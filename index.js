@@ -12,14 +12,6 @@ app.use (bodyParser.urlencoded ({extended: true}));
 
 app.use (cors ());
 
-app.use (function (req, res) {
-  res.header ('Access-Control-Allow-Origin', '*');
-  res.header (
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-with, Content-Type, Accept'
-  );
-});
-
 app.listen (port, () => {
   console.log ("We're live on port 4444");
 });
