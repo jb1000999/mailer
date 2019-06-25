@@ -27,19 +27,19 @@ app.post ('/api/v1', (req, res) => {
     service: 'Gmail',
     port: 465,
     auth: {
-      user: 'USERNAME',
-      pass: 'PASSWORD',
+      user: 'ctrjcb@gmail.com',
+      pass: 'Batterman12',
     },
   });
 
   const mailOptions = {
     from: data.email,
-    to: 'ctrjcb@gmail.com',
+    to: 'mike@methcleanup.com',
     subject: 'test for mailer',
-    html: `<p>${data.name}</p>
-          <p>${data.email}</p>
-          <p>${data.phone}</p>
-          <p>${data.message}</p>`,
+    html: `<p>Name: ${data.name}</p>
+          <p>Email: ${data.email}</p>
+          <p>Phone Number: ${data.phone}</p>
+          <p>Message: ${data.message}</p>`,
   };
 
   smtpTransport.sendMail (mailOptions, (error, response) => {
