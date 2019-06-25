@@ -1,0 +1,7 @@
+{
+  "name": "emailer-for-cd",
+  "builds": [{
+    "src": "index.js",
+    "use": "@now/node-server"
+  }]
+}
