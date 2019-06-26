@@ -1,8 +1,9 @@
 {
   "version": 2,
-  "name": "emailerforcd",
+  "name": "emailforcd",
   "builds": [{
-    "src": "server.js"
+    "src": "server.js",
+    "use": "@now/node-server"
   }],
   "routes": [{
     "src": "/(.*)",
