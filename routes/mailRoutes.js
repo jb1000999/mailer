@@ -33,3 +33,5 @@ MailRouter.route ('/').post ((req, res) => {
     smtpTransport.close ();
   });
 });
+
+module.exports = MailRouter;
