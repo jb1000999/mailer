@@ -1,34 +1,17 @@
 const express = require ('express');
-const bodyParser = require ('body-parser');
+const MailRouter = express.Router ();
 const nodemailer = require ('nodemailer');
-const cors = require ('cors');
+const creds = require ('../config/config');
 
-const app = express ();
-
-const port = 4444;
-
-app.use (bodyParser.json ());
-app.use (bodyParser.urlencoded ({extended: true}));
-
-app.use (cors ());
-
-app.listen (port, () => {
-  console.log ("We're live on port 4444");
-});
-
-app.get ('/', (req, res) => {
-  res.send ('Welcome to my mailer');
-});
-
-app.post ('/api/v1', (req, res) => {
+MailerRouter.route ('/').post ((req, res) => {
   const data = req.body;
 
   const smtpTransport = nodemailer.createTransport ({
     service: 'Gmail',
     port: 465,
     auth: {
-      user: 'ctrjcb@gmail.com',
-      pass: 'Batterman12',
+      user: creds.USER,
+      pass: creds.PASS,
     },
   });
 
@@ -41,12 +24,11 @@ app.post ('/api/v1', (req, res) => {
           <p>Phone Number: ${data.phone}</p>
           <p>Message: ${data.message}</p>`,
   };
-
   smtpTransport.sendMail (mailOptions, (error, response) => {
     if (error) {
-      res.send (error);
+      res.send ('Mailer Error is sendMail call: ' + error);
     } else {
-      res.send ('Success');
+      res.send ('Success: ' + response);
     }
     smtpTransport.close ();
   });
