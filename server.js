@@ -1,7 +1,7 @@
 const express = require ('express');
 const app = express ();
 const bodyParser = require ('body-parser');
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 4444;
 const cors = require ('cors');
 const mailRoutes = require ('./routes/mailRoutes');
 

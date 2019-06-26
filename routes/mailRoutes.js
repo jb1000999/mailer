@@ -4,9 +4,9 @@ const nodemailer = require ('nodemailer');
 const creds = require ('../config/config');
 
 MailRouter.route ('/').post ((req, res) => {
-  const data = req.body;
+  let data = req.body;
 
-  const smtpTransport = nodemailer.createTransport ({
+  let smtpTransport = nodemailer.createTransport ({
     service: 'Gmail',
     port: 465,
     auth: {
@@ -15,7 +15,7 @@ MailRouter.route ('/').post ((req, res) => {
     },
   });
 
-  const mailOptions = {
+  let mailOptions = {
     from: data.email,
     to: 'mike@methcleanup.com',
     subject: 'test for mailer',
