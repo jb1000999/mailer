@@ -3,7 +3,7 @@ const MailRouter = express.Router ();
 const nodemailer = require ('nodemailer');
 const creds = require ('../config/config');
 
-MailerRouter.route ('/').post ((req, res) => {
+MailRouter.route ('/').post ((req, res) => {
   const data = req.body;
 
   const smtpTransport = nodemailer.createTransport ({
